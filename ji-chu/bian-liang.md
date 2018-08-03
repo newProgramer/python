@@ -37,7 +37,7 @@ python有五个标准的数据类型：
 >
 > boolean类型也是一种数字类型
 
-## 列表
+## 列表 List
 
 列表使用`[]`标识，是python最通用的符合数据类型。例如:
 
@@ -46,7 +46,17 @@ val=['1', '2', '3']
 print(val[0])
 ```
 
-## 元组
+```py
+val.append('4') #追加元素到末尾
+val.insert(1, '5') #插入元素到指定位置
+val.pop() #删除末尾元素
+val.pop(i) #删除指定位置元素
+val[1]='6' #替换索引位置元素
+val=[1, '2', True, ['1', '2']] #list可以存放不同数据类型的数据
+
+```
+
+## 元组 Tuple
 
 元组是python的另一种数据类型，类似于List
 
@@ -59,7 +69,7 @@ val=('1', '2', '3')
 print(val[0])
 ```
 
-## 字典
+## 字典 dict
 
 字典使用`{}`标识，由`key-value`组成，例如：
 
@@ -67,6 +77,29 @@ print(val[0])
 dict={'key1':'value1', 'key2':'value2'}
 print(dict['key1'])
 ```
+
+```
+'key1' in dict #判断key是否存在
+dict.get(key) #获取指定key的value
+dict.pop(key) #删除一个key-value
+```
+
+# set
+
+set和dict类似，是一组key的集合，但不存储value，set集合中没有重复的数据。
+
+要创建一个set需要提供一个list作为输入集合，例如：
+
+```
+s = set([1,2,3])
+```
+
+```
+s.add(key) #添加元素
+s.remove(key) #删除元素
+```
+
+
 
 
 
