@@ -10,4 +10,5 @@
   * [循环](xun-huan.md)
 * [函数](han-shu.md)
 * [高级特性](gao-ji-te-xing.md)
+* [函数式编程](han-shu-shi-bian-cheng.md)
 

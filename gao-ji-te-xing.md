@@ -78,5 +78,82 @@ L = ['A', 'B', 'C']
 [s.lower() for s in L] #生成['a', 'b', 'c']
 ```
 
+# 生成器
+
+在循环的过程中不断推算出后续元素，用多少推算多少，不必生成完整的list，从而节省大量空间。
+
+```
+g = (x*x for x in range(10))
+print(next(g)) #打印生成器的下一个元素
+for n in g: #使用迭代器遍历g的元素
+    pass
+```
+
+每次调用`next(g)`的时候，就计算出`g`的下一个元素的值，直到计算到最后一个元素没有更多的元素时，抛出`StopIteration`的错误。for循环迭代不需要关心`StopIteration`错误。
+
+generator如果推算的算法比较复杂还可以使用函数实现，例如斐波那契数列，除第一个数和第二个数外，任意一个数都可以由前两个数相加得到：
+
+1,1,2,3,5,8,13,21...
+
+```
+def fib(max):
+   n,a,b = 0,0,1
+   while n < max:
+       print(b)
+       a,b = b, a+b
+       n = n + 1
+   return 'done'
+```
+
+将上述函数改造成generator只需要把`print(b)`改为`yield b`就行了。
+
+```
+def fib(max):
+   n,a,b = 0,0,1
+   while n < max:
+       yield b
+       a,b = b, a+b
+       n = n + 1
+   return 'done'
+```
+
+> 注意：generator函数不再是顺序执行到return返回，而是每次调用`next()`的时候执行，遇到`yield`语句返回，再次执行时从上次返回的`yield`语句处继续执行
+>
+> 用`for`循环调用generator时，发现拿不到generator的`return`语句的返回值。如果想要拿到返回值，必须捕获`StopIteration`错误，返回值包含在`StopIteration`的`value`中
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
