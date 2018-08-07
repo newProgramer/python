@@ -62,3 +62,31 @@ with open('path', 'w') as f:
 
 更多信息参考[https://docs.python.org/3/library/functions.html\#open](https://docs.python.org/3/library/functions.html#open "官方文档")
 
+# 内存读写
+
+### StringIO
+
+在内存中读写str。
+
+```
+from io import StringIO
+f = StringIO()
+f.write('hello')
+print(f.getvalue)
+```
+
+`getvalue()`方法用于获得写入的str,除此之外StringIO也可以像读写文件一样操作
+
+### BytesIO
+
+在内存中读写二进制。
+
+```
+from io import BytesIO
+f = BytesIO()
+f.write('中文'.encode('utf-8'))
+print(f.getvalue())
+```
+
+BytesIO和StringIO也可以像读写文件一样操作。
+
