@@ -14,4 +14,5 @@
 * [模块](mo-kuai.md)
 * [面向对象编程](mian-xiang-dui-xiang-bian-cheng.md)
 * [面向对象高级编程](mian-xiang-dui-xiang-gao-ji-bian-cheng.md)
+* [错误、调试和测试](cuo-wu-3001-diao-shi-he-ce-shi.md)
 
