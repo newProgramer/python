@@ -90,3 +90,116 @@ print(f.getvalue())
 
 BytesIO和StringIO也可以像读写文件一样操作。
 
+# 操作文件和目录
+
+操作文件和目录的函数一部分在`os`模块中，一部分在`os.path`中。
+
+```
+os.path.abspath('.') #查看当前目录的绝对路径
+os.path.join('parent', 'dir') #在目录下创建一个新目录，返回新目录的完整路径
+os.mkdir('path') #创建一个新目录
+os.rmdir('path') #删除一个目录
+os.path.split('path') #拆分最后一个目录或文件与之前的目录
+os.path.splitext('path') #获取文件的扩展名
+os.rename('old', 'new') #重命名文件
+os.remove('path') #删除文件
+```
+
+复制函数在`shutil`模块中`copyfile()`。
+
+###### 过滤文件夹
+
+```
+[x for x in os.listdir('.') if os.path.isdir(x)]
+```
+
+# 序列化
+
+python提供`pickle`模块实现序列化。
+
+```
+import pickle
+pickle.dumps(object) #序列化任何对象为bytes
+pickle.dump(object,file) #序列化对象写入一个file-like Object
+pickle.loads(bytes) #反序列化出对象
+pickle.load(file) #从file-like Object中反序列化出对象
+```
+
+# Json
+
+python内置了`json`模块提供python对象和Json格式之间的转换。
+
+```
+import json
+json.dumps(object) #将对象转换成json字符串
+json.dump(object, file) #将对象转换成json字符串并写入file-like object
+json.loads(json) #将json转换成object
+json.load(file) #读取文件获取json并转换成对象
+```
+
+> 注意：class对象无法直接转换成json对象，必须实现一个类到dict对象的转换方法，通过dumps调用才能转换成json
+>
+> ```
+> class Student(object):
+>     def student2dict(self):
+>         return {'name': self.name}
+> json.dumps(student, default=student2dict)
+>
+> 偷懒方式
+> json.dumps(student, default=lambda obj:obj.__dict__)
+> ```
+>
+> 同理，json转换成class对象也需要先转换成dict，然后转换成对象
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
